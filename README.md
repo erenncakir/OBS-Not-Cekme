@@ -3,7 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![Lisans](https://img.shields.io/badge/License-GPLv3-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-**Kısa Açıklama:** Kütahya Dumlupınar Üniversitesi (DPÜ) öğrencileri için geliştirilmiş, **konsol tabanlı** bir not takip uygulamasıdır. OBS (Öğrenci Bilgi Sistemi) notlarını otomatik olarak çeker ve günceller.
+Kütahya Dumlupınar Üniversitesi (DPÜ) öğrencileri için geliştirilmiş, **konsol tabanlı** bir not takip uygulamasıdır. OBS (Öğrenci Bilgi Sistemi) notlarını otomatik olarak çeker ve günceller.
 
 ## Proje Amacı
 
