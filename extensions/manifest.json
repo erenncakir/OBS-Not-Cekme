@@ -20,11 +20,11 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "128": "extension_icon.ico"
+      "128": "extension_icon.png"
     }
   },
   
   "icons": {
-    "128": "extension_icon.ico"
+    "128": "extension_icon.png"
   }
 }
