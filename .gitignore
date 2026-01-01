@@ -1,0 +1,33 @@
+# Python derleme dosyaları 
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Sanal Ortam Klasörleri (Kütüphanelerin yüklü olduğu yer, repoya atılmaz)
+venv/
+env/
+.venv/
+.env/
+
+# Ortam Değişkenleri ve Gizli Bilgiler (Şifrelerinizi asla GitHub'a atmayın!)
+.env
+config.py
+secrets.json
+kullanici_bilgileri.txt
+
+# Log dosyaları (Hata kayıtları vs.)
+*.log
+
+# Eğer Selenium kullanıyorsanız driver logları
+geckodriver.log
+chromedriver.log
+
+# IDE Ayar Dosyaları (VS Code, PyCharm vb. ayarları)
+.vscode/
+.idea/
+*.swp
+
+# İşletim Sistemi Dosyaları
+.DS_Store
+Thumbs.db

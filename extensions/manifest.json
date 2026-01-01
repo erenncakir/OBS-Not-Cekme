@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "OBS Cookie Helper",
+  "version": "1.0",
+  "description": "DPÜ OBS cookie'lerini otomatik olarak Python programına gönderir",
+  
+  "permissions": [
+    "cookies",
+    "tabs"
+  ],
+  
+  "host_permissions": [
+    "https://obs.dpu.edu.tr/*"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "extension_icon.ico"
+    }
+  },
+  
+  "icons": {
+    "128": "extension_icon.ico"
+  }
+}
