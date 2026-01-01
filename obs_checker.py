@@ -22,14 +22,16 @@ def check_obs_grades():
         return False
     
     headers = {
-        "accept": "*/*",
-        "cookie": cookie_value,
-        "cache-control": "no-cache",
-        "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-        "origin": "https://obs.dpu.edu.tr",
-        "referer": "https://obs.dpu.edu.tr/oibs/std/index.aspx?curOp=0"
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+        "Cookie": cookie_value,
+        "Cache-Control": "max-age=0",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Origin": "https://obs.dpu.edu.tr",
+        "Referer": "https://obs.dpu.edu.tr/oibs/std/not_listesi_op.aspx",
+        "Accept-Language": "tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7"
     }
-
+    
     url = "https://obs.dpu.edu.tr/oibs/std/not_listesi_op.aspx"
     
     try:

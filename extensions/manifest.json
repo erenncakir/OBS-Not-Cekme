@@ -6,11 +6,15 @@
   
   "permissions": [
     "cookies",
-    "tabs"
+    "tabs",
+    "storage",
+    "webRequest"
   ],
   
   "host_permissions": [
-    "https://obs.dpu.edu.tr/*"
+    "*://*.dpu.edu.tr/*",
+    "http://localhost:5000/*",
+    "http://127.0.0.1:5000/*"
   ],
   
   "background": {
