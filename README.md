@@ -1,68 +1,100 @@
-# OBS Not Çekme
+# OBS Not Çekme & Cookie Helper
 
 [![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
 [![Lisans](https://img.shields.io/badge/License-GPLv3-red.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Kütahya Dumlupınar Üniversitesi (DPÜ) öğrencileri için geliştirilmiş, **konsol tabanlı** bir not takip uygulamasıdır. OBS (Öğrenci Bilgi Sistemi) notlarını otomatik olarak çeker ve günceller.
+Kütahya Dumlupınar Üniversitesi (DPÜ) öğrencileri için geliştirilmiş, **Chrome Uzantısı destekli** ve **konsol tabanlı** bir not takip sistemidir.
+
+Bu proje iki ana parçadan oluşur:
+
+1. **Chrome Uzantısı:** OBS sistemine girdiğinizde oturum (cookie) bilgisini otomatik yakalar.
+2. **Python Uygulaması:** Yakalanan veriyi kullanarak notlarınızı çeker, analiz eder ve konsolda listeler.
 
 ## Proje Amacı
 
-Öğrencilerin OBS sistemine sürekli giriş yapma ihtiyacını ortadan kaldırarak, not takibini basitleştirmek ve yeni not girişlerini kolayca takip etmelerini sağlamaktır.
+Öğrencilerin OBS sistemine sürekli giriş yapma veya manuel olarak F12 ile cookie kopyalama zahmetini ortadan kaldırarak, not takibini otomatize etmektir.
 
 ## Temel İşlevler
 
-* **Otomatik Güncelleme:** Uygulama, belirtilen aralıklarla (şu anda **her 30 dakikada bir**) OBS verilerini kontrol eder ve günceller.
-* **Konsol Erişim:** Notları doğrudan bilgisayar konsolu üzerinden hızlıca görüntüleme imkanı sunar.
-* **Pasif Takip:** Arka planda sessizce çalışarak güncel bilgileri hazırlar.
+- **Otomatik Kimlik Doğrulama:** Chrome uzantısı sayesinde manuel cookie kopyalamaya son. OBS'ye girmeniz yeterlidir.
+- **Güvenli İletişim:** Cookie verisi yerel sunucuda şifrelenerek (`Fernet`) saklanır.
+- **Otomatik Dönem Algılama:** İçinde bulunduğunuz akademik dönemi (Güz/Bahar) otomatik hesaplar.
+- **Konsol Erişim:** Notları doğrudan bilgisayar konsolu üzerinden hızlıca görüntüleme imkanı sunar.
 
-## Kurulum ve Çalıştırma
-
-Bu uygulama Python tabanlı olduğu için öncelikle bilgisayarınızda Python kurulu olmalıdır.
+## Kurulum
 
 ### 1. Önkoşullar
 
-* Python 3.x (Önerilir)
-* `pip` (Python paket yöneticisi)
+- Python 3.x
+- Google Chrome (veya Chromium tabanlı bir tarayıcı)
 
-### 2. Depoyu Klonlama
+### 2. Projeyi İndirme
 
-Projeyi yerel makinenize indirin:
+Projeyi bilgisayarınıza klonlayın veya indirin:
 
 ```bash
 git clone [https://github.com/erenncakir/OBS-Not-Cekme.git](https://github.com/erenncakir/OBS-Not-Cekme.git)
 cd OBS-Not-Cekme
 ```
-### 3. Bağımlılıkları Yükleme
+
+### 3. Python Kütüphanelerini Yükleme
+
 ```bash
-pip install beautifulsoup4 certifi charset-normalizer idna requests soupsieve urllib3
+pip install -r requirements.txt
 ```
-### 4. Kullanım (Cookie Girişi)
-Uygulama, OBS sisteminde kimlik doğrulaması yapmak için güncel **Cookie** bilginizi gerektirir. Uygulamayı çalıştırdığınızda (RAR içindeki Exeyi çalıştırdığımızda) Cookie girmemizi isteyecek.
-Cookie'yi almak için aşağıdaki adımları sırasıyla gerçekleştirin:
 
-+ OBS DPÜ sitesine giriş yapın.
-+ Klavyeden **F12** tuşuna basın veya sağ tıklayarak **"Siteyi İncele"** seçeneğini seçin.
-+ Açılan pencerede **Network** sekmesine geçin.
-+ OBS Sitesinden Not Listesi'ne tıklayın.
-+ Network kısmına `not_listesi_op.aspx` gelecektir, buna tıklayın.
-+ Açılan panelden gerekli Cookie bilgisini kopyalayın ve uygulamaya yapıştırın.
+### 4. Chrome Uzantısını Yükleme
 
-## Kullanılan Teknolojiler
+1. Google Chrome'u açın ve adres çubuğuna chrome://extensions/ yazın.
+2. Sağ üst köşedeki "Geliştirici modu" (Developer mode) anahtarını açın.
+3. Sol üstte beliren "Paketlenmemiş öğe yükle" (Load unpacked) butonuna tıklayın.
+4. İndirdiğiniz proje klasörünü seçin.
 
-Bu uygulama saf Python kullanılarak geliştirilmiştir.
+### Kullanım
 
-| Kategori | Kütüphane | Amaç |
-| :--- | :--- | :--- |
-| **Web Kazıma** | `beautifulsoup4` | OBS sayfasındaki not verilerini çekmek için. |
-| **HTTP İstekleri** | `requests` | OBS sunucusuna HTTP istekleri göndermek için. |
-| **Diğer** | `certifi, idna, charset-normalizer, soupsieve, urllib3` | İstek ve veri işleme süreçleri için gerekli bağımlılıklar. |
+Sistemi çalıştırmak için aşağıdaki adımları takip edin:
 
-## Gelecek Güncellemeler [Roadmap]
-+ **Bildirim Sistemi** : Yeni not girişi algılandığında sesli bildirim gönderilecek.
-+ **Geliştirilmiş Kimlik Doğrulaması** : Cookie kullanmak yerine, programın öğrenci numarası ve şifre ile çalıştırılabilmesi.
+### Adım 1: Python Sunucusunu Başlatın
+
+Öncelikle uzantının iletişim kuracağı sunucuyu başlatın:
+
+```bash
+python python_server.py
+```
+
+### Adım 2: OBS'ye Giriş Yapın
+
+1. Tarayıcınızdan OBS Sistemine (obs.dpu.edu.tr) giriş yapın.
+2. Not Listesi sayfasına gidin veya Chrome sağ üst köşesindeki eklenti ikonuna tıklayıp "Manuel Gönder" butonuna basın.
+3. Eklenti ikonunda veya Python konsoludna "Cookie alındı ve kaydedildi!" mesajını göreceksiniz.
+
+### Adım 3: Notları Kontrol Edin
+
+Artık notlarınızı çekmek için ana programı çalıştırabilirsiniz:
+
+```bash
+python obs_checker.py
+```
+
+Program otomatik olarak dönem bilgisini soracak veya algılayacak, ardından notlarınızı listeleyecektir.
+
+### Kullanılan Teknolojiler
+
+| Kategori        | Teknoloji                  | Amaç                                                       |
+| :-------------- | :------------------------- | :--------------------------------------------------------- |
+| **Backend**     | `Flask, Flask-CORS`        | Chrome uzantısından gelen verileri dinleyen yerel sunucu.  |
+| **Güvenlik**    | `Cryptography (Fernet)`    | Cookie verilerinin şifrelenerek saklanması.                |
+| **Web Kazıma**  | `beautifulsoup4, requests` | OBS sayfasındaki not verilerini çekmek ve işlemek          |
+| **Browser Ext** | `Javascript, Manifest V3`  | İstek ve veri işleme süreçleri için gerekli bağımlılıklar. |
+
+### Gelecek Güncellemeler [Roadmap]
+
+- **Bildirim Sistemi** : Yeni not girişi algılandığında sesli bildirim gönderilecek.
 
 ## Katkıda Bulunma
+
 Hata raporları veya özellik önerileri için lütfen GitHub Issues bölümünü kullanın.
 
 ## Lisans
+
 Bu proje **GNU Genel Kamu Lisansı sürüm 3 (GPLv3)** ile lisanslanmıştır.
