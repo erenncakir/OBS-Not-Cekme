@@ -1,4 +1,4 @@
-# Güvenlik - Asla yüklenmemeli
+# Güvenlik
 secret.key
 cookie_encrypted.dat
 cookie_log.json
@@ -12,6 +12,11 @@ __pycache__/
 env/
 venv/
 ENV/
+
+# EXE
+build/
+dist/
+notCek.spec
 
 # IDE
 .vscode/
