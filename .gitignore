@@ -16,7 +16,7 @@ ENV/
 # EXE
 build/
 dist/
-notCek.spec
+OBS_Takip.spec
 
 # IDE
 .vscode/
