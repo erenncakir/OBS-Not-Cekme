@@ -6,49 +6,74 @@
       body {
         width: 300px;
         padding: 15px;
-        font-family: Arial, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f8f6;
+        color: #5d564f;
       }
       h3 {
-        color: #1a73e8;
+        color: #c9b59c;
         margin-top: 0;
+        border-bottom: 2px solid #efe9e3;
+        padding-bottom: 10px;
+        font-weight: 600;
       }
       .status {
-        padding: 10px;
-        border-radius: 5px;
-        margin: 10px 0;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 15px 0;
+        font-size: 13px;
+        font-weight: 500;
       }
       .success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
+        background-color: #e3efe5;
+        color: #2d5034;
+        border: 1px solid #c1dcc6;
       }
       .error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
+        background-color: #fae3e3;
+        color: #8a2a2a;
+        border: 1px solid #eebaba;
       }
       .info {
-        background-color: #d1ecf1;
-        color: #0c5460;
-        border: 1px solid #bee5eb;
+        background-color: #efe9e3;
+        color: #6b6054;
+        border: 1px solid #d9cfc7;
       }
       button {
         width: 100%;
-        padding: 10px;
-        background-color: #1a73e8;
+        padding: 12px;
+        background-color: #c9b59c;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
         cursor: pointer;
         font-size: 14px;
+        font-weight: bold;
+        transition: background-color 0.2s, transform 0.1s;
       }
       button:hover {
-        background-color: #1557b0;
+        background-color: #bfa386;
+      }
+      button:active {
+        transform: scale(0.98);
       }
       .timestamp {
+        font-size: 11px;
+        color: #998e83;
+        margin: 5px 0 5px 0;
+        text-align: right;
+      }
+      .instructions {
+        margin-top: 20px;
         font-size: 12px;
-        color: #666;
-        margin-top: 5px;
+        color: #7a7066;
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #efe9e3;
+      }
+      .instructions strong {
+        color: #c9b59c;
       }
     </style>
   </head>
@@ -63,7 +88,7 @@
 
     <button id="manualSend">Manuel Gönder</button>
 
-    <div style="margin-top: 15px; font-size: 12px; color: #666">
+    <div class="instructions">
       <strong>Nasıl Çalışır?</strong><br />
       1. OBS'ye giriş yap<br />
       2. Python programını çalıştır<br />
