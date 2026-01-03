@@ -175,20 +175,3 @@ def check_obs_grades():
     except Exception as e:
         print(f"Beklenmeyen hata: {str(e)}")
         return False
-
-
-if __name__ == '__main__':
-    print("OBS Not Takip Sistemi")
-    print("=" * 75)
-    
-    kontrol_araligi = 30 * 60  # 30 dakika
-    
-    while True:
-        basarili = check_obs_grades()
-        
-        if basarili:
-            print(f"\nSonraki kontrol {kontrol_araligi // 60} dakika sonra...")
-            time.sleep(kontrol_araligi)
-        else:
-            print("\nHata oluştu. 5 dakika sonra tekrar denenecek...")
-            time.sleep(5 * 60)
