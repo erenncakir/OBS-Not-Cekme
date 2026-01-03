@@ -5,6 +5,9 @@ import sys
 import os
 from datetime import datetime
 
+from colorama import init, Fore, Style
+init(autoreset=False)
+
 # python_server.py'den fonksiyonu import et
 sys.path.append(os.path.dirname(__file__))
 from python_server import get_saved_cookie
@@ -25,8 +28,8 @@ def get_user_selection_auto():
         akademik_yil_baslangic = mevcut_yil
 
     while True:
-        print("Hangi dönemdesiniz?")
-        secim = input("Seçiminiz (1/Güz veya 2/Bahar): ").strip().lower()
+        print(" Hangi dönemdesiniz?")
+        secim = input(" Seçiminiz (1/Güz veya 2/Bahar): ").strip().lower()
         
         donem_kodu = ""
         donem_adi = ""
@@ -41,15 +44,17 @@ def get_user_selection_auto():
             donem_adi = "Bahar"
             break
         else:
-            print("Hatalı giriş! Lütfen sadece '1' veya '2' yazınız.\n")
+            print(" Hatalı giriş! Lütfen sadece '1' veya '2' yazınız.\n")
 
-    print(f"\nAlgılanan Akademik Dönem: {akademik_yil_baslangic}-{akademik_yil_baslangic+1} {donem_adi}")
-    print(f"Sunucuya Gönderilecek Kod: {donem_kodu}")
+    print(f"\n Algılanan Akademik Dönem: {akademik_yil_baslangic}-{akademik_yil_baslangic+1} {donem_adi}")
+    print(f" Sunucuya Gönderilecek Kod: {donem_kodu}")
     
     return donem_kodu
 
 def check_obs_grades():
     """OBS'den belirli bir dönem için notları çek"""
+
+    print(Fore.LIGHTWHITE_EX, end="")
 
     HEDEF_DONEM = get_user_selection_auto()
 
