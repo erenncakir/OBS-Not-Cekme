@@ -55,27 +55,19 @@ pip install -r requirements.txt
 
 Sistemi çalıştırmak için aşağıdaki adımları takip edin:
 
-### Adım 1: Python Sunucusunu Başlatın
+### Adım 1: Uygulamayı Başlatın
 
-Öncelikle uzantının iletişim kuracağı sunucuyu başlatın:
+Tek bir komutla hem sunucuyu hem de not kontrol sistemini başlatın:
 
 ```bash
-python python_server.py
+python main.py
 ```
 
 ### Adım 2: OBS'ye Giriş Yapın
 
 1. Tarayıcınızdan OBS Sistemine (obs.dpu.edu.tr) giriş yapın.
 2. Not Listesi sayfasına gidin veya Chrome sağ üst köşesindeki eklenti ikonuna tıklayıp "Manuel Gönder" butonuna basın.
-3. Eklenti ikonunda veya Python konsoludna "Cookie alındı ve kaydedildi!" mesajını göreceksiniz.
-
-### Adım 3: Notları Kontrol Edin
-
-Artık notlarınızı çekmek için ana programı çalıştırabilirsiniz:
-
-```bash
-python obs_checker.py
-```
+3. Konsol ekranında anında notlarınız listelenecektir.
 
 Program otomatik olarak dönem bilgisini soracak veya algılayacak, ardından notlarınızı listeleyecektir.
 
@@ -83,7 +75,9 @@ Program otomatik olarak dönem bilgisini soracak veya algılayacak, ardından no
 
 | Kategori        | Teknoloji                  | Amaç                                                       |
 | :-------------- | :------------------------- | :--------------------------------------------------------- |
+| **Çekirdek**    | `Python, Threading`        | Sunucu ve kontrolcünün eşzamanlı çalışması.                |
 | **Backend**     | `Flask, Flask-CORS`        | Chrome uzantısından gelen verileri dinleyen yerel sunucu.  |
+| **Arayüz**      | `Colorama`                 | Konsol çıktılarının renklendirilmesi ve okunabilirlik.     |
 | **Güvenlik**    | `Cryptography (Fernet)`    | Cookie verilerinin şifrelenerek saklanması.                |
 | **Web Kazıma**  | `beautifulsoup4, requests` | OBS sayfasındaki not verilerini çekmek ve işlemek          |
 | **Browser Ext** | `Javascript, Manifest V3`  | İstek ve veri işleme süreçleri için gerekli bağımlılıklar. |
